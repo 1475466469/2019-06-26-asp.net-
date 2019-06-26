@@ -1,0 +1,44 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+namespace OA.Filters
+{
+    public class AuthenticationAttribute: ActionFilterAttribute
+    {
+
+      
+
+
+        //进入方法之前执行
+        public override void OnActionExecuting(ActionExecutingContext filterContext)
+        {
+            //base.OnActionExecuting(filterContext);
+            //if (IsCheck)
+            //{
+
+            if (filterContext.HttpContext.Session["userID"] == null)
+            {
+                filterContext.HttpContext.Response.Redirect("/Home/login");
+
+            }
+               // Console.WriteLine(name);
+                //var staffLoginCookiesStr = Session["c"]
+                //if (string.IsNullOrEmpty(staffLoginCookiesStr))
+                //{
+                //    var url = filterContext.HttpContext.Request.Url;//获取当前所在页面的URL
+                //    var urlStr = EncryptUtil.Base64Encrypt(url.ToString());//Base64加密
+                //    filterContext.Result = new RedirectResult("/Home/Login?url=" + urlStr); //跳转到登录页面并把当前所在页面的URL当做参数传到登录页面
+                //}
+            }
+
+
+        
+
+
+
+
+    }
+}
